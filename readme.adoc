@@ -1,0 +1,25 @@
+= Read Me
+
+    This readme is intented to show a new user how to setup a development environment to run and build the code. These instructions assume the user is using a Linux environment. Note, Python3 needs to be installed beforehand. Additionally some knowledge about the commandline will be beneficial. Termial commands will be denoted using '>'.
+
+== Setup Virtual Envrionment
+. Set your termianl to the root project directory
+. Create virtualenv
+.. > python3 -m venv virtualenv
+. Activate the virtual environment
+.. > source virtualenv/bin/activate
+. Install project dependencies
+.. > pip install -r requirements.txt
+
+== Run Project
+. Activate your virtual environment (if it's not already active)
+. In the root project directory run the following:
+.. > python3 launcher.py
+
+== Create Portable Project Folder
+    Creates an executable you can share with others to run this project.
+
+. Activate your virtual environment (if it's not already active)
+. Run pyinstaller
+.. > pyinstaller webster.spec
+. If the command runs successfully, an executable named webster will be in the dist directory
