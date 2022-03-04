@@ -1,25 +1,103 @@
-= Read Me
+= README
 
-    This readme is intented to show a new user how to setup a development environment to run and build the code. These instructions assume the user is using a Linux environment. Note, Python3 needs to be installed beforehand. Additionally some knowledge about the commandline will be beneficial. Termial commands will be denoted using '>'.
+This cli app allows a user to quickly search a word on merriam-webster.com.
 
-== Setup Virtual Envrionment
-. Set your termianl to the root project directory
-. Create virtualenv
-.. > python3 -m venv virtualenv
+== Getting Started
+
+=== Retrieve the Code
+
+You can either clone the codebase or download it directly, I suggest downloading a release.
+
+==== Cloning
+
+. Download and install Git link:https://git-scm.com/downloads[here] if Git is not installed
+. Choose a method of cloning using github's documentation link:https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls[here]
+
+.Code Snippet
+[source]
+----
+git clone git@github.com:BZohorskys-Web-Scraping-Repos/Webster.git
+----
+
+==== Downloading
+
+When downloading you can either download a zip folder of a specific branch of the codebase or download a release provided on github. A link to download the master branch of the codebase can be found link:https://github.com/BZohorskys-Web-Scraping-Repos/Webster/archive/refs/heads/master.zip[here]. However, I'd suggest downloading a release as those will be more stable. 
+
+=== Setup a Virtual Environment
+
+. Download and install Python link:https://www.python.org/downloads/[here] if Python is not installed
+. Move to the project's top directory
+. Create a virtual environment
 . Activate the virtual environment
-.. > source virtualenv/bin/activate
 . Install project dependencies
-.. > pip install -r requirements.txt
+
+.Code Snippet
+[source]
+----
+cd <to the project's top level directory>
+python3 -m venv virtualenv
+source virtualenv/bin/activate
+pip install -r requirements.txt
+----
 
 == Run Project
-. Activate your virtual environment (if it's not already active)
-. In the root project directory run the following:
-.. > python3 launcher.py
 
-== Create Portable Project Folder
-    Creates an executable you can share with others to run this project.
+. Move to the project's top level directory
+. Activate virtual environment
+. Execute Code
 
-. Activate your virtual environment (if it's not already active)
-. Run pyinstaller
-.. > pyinstaller webster.spec
-. If the command runs successfully, an executable named webster will be in the dist directory
+.Code Snippet (Linux & MacOS)
+[source]
+----
+cd <to the project's top level directory>
+source virtualenv/bin/activate
+python launcher.py <search argument>
+----
+
+.Code Snippet (Windows)
+[source]
+----
+cd <to the project's top level directory>
+.\virtualenv\Scripts\activate.bat
+python launcher.py <search argument>
+----
+
+== Project Distribution
+
+This section describes how to create a binary to distribute to others. Note, this binary will be OS dependent (Windows/Linux/MacOS) meaning only users sharing the same type of OS can share binaries.
+
+. Move to the project's top directory
+. Activate virtual environment
+. Create a binary called "webster" located in the dist directory
+
+.Code Snippet (Linux & MacOS)
+[source]
+----
+cd <to the project's top level directory>
+source virtualenv/bin/activate
+pyinstaller webster.spec
+----
+
+.Code Snippet (Windows)
+[source]
+----
+cd <to the project's top level directory>
+.\virtualenv\Scripts\activate.bat
+pyinstaller webster.spec
+----
+
+== Run Binary
+
+. Execute the binary 
+
+.Code Snippet (Linux & MacOS)
+[source]
+----
+./<path-to-binary> <search argument>
+----
+
+.Code Snippet (Windows)
+[source]
+----
+.\<path-to-binary> <search argument>
+----
